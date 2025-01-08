@@ -49,3 +49,5 @@ dist/
 # Local development configurations
 config.local.yaml
 config.dev.yaml
+
+console-log-manager
