@@ -292,7 +292,7 @@ func processFile(path string, info os.FileInfo, err error, shouldDelete bool) er
 	}
 
 	if shouldDelete {
-		newContent, changed := removeConsoleLog(content, path)
+		newContent, changed := removeConsoleLog(content)
 		if changed {
 			// Create backup file
 			backupPath := path + ".bak"
@@ -315,7 +315,7 @@ func processFile(path string, info os.FileInfo, err error, shouldDelete bool) er
 	return nil
 }
 
-func removeConsoleLog(content []byte, path string) ([]byte, bool) {
+func removeConsoleLog(content []byte) ([]byte, bool) {
 	lines := bytes.Split(content, []byte{'\n'})
 	var newLines [][]byte
 	inComment := false
